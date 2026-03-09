@@ -1,7 +1,5 @@
 # StudyPlanner REST API Metotları
 
-**API Test Videosu:** [Link buraya eklenecek](https://example.com)
-
 ---
 
 ## 1. Kullanıcı Kaydı
