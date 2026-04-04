@@ -1,27 +1,37 @@
-PROJE ADI
-Not: Bu bölüm proje adı ile güncellenmelidir.
+# StudyPlanner
 
-Proje Hakkında
-Ürün Tanıtım Görseli
+---
 
-Proje Tanımı:
+## Proje Hakkında
 
-Projenin ne iş yaptığını anlatan bir paragraflık tanıtım metni buraya yazılacaktır.
+### Ürün Tanıtım Görseli
+<!-- Buraya ekran görüntüsü ekleyebilirsin -->
+<!-- Örnek: ![StudyPlanner Screenshot](link) -->
 
-Örnek: ASY isimli e-ticaret sitemiz, online alışveriş deneyimini kolay ve keyifli hale getirmek için tasarlandı. Geniş ürün yelpazemiz sayesinde müşterilerimize en iyi seçenekleri sunarken, kullanıcı dostu arayüzümüz ile de alışveriş yapmayı daha rahat hale getiriyoruz. Sitemizde yer alan ürünler, kaliteli ve güvenilir markaların en yeni ve trend ürünlerinden oluşuyor. Müşterilerimiz, aradıkları ürünleri hızlı ve kolay bir şekilde bulabilirken, aynı zamanda satın alma süreçlerinde de sorunsuz bir deneyim yaşayacaklar. Hızlı teslimat seçenekleri, güvenli ödeme sistemleri ve müşteri memnuniyetine önem veren satış sonrası hizmetlerimizle, ASY olarak müşterilerimizin beklentilerini en üst seviyede karşılamayı hedefliyoruz. Her zaman en iyi fiyatlarla, kaliteli ürünleri müşterilerimize sunmak için çalışıyoruz ve müşteri memnuniyeti bizim için her zaman önceliklidir. ASY e-ticaret sitemize hoş geldiniz, size hizmet vermek için sabırsızlanıyoruz.
+---
 
-Proje Kategorisi:
+### Proje Tanımı:
 
-Projenin hangi alanda yapıldığını belirten bir kategori. Örnek: E-Ticaret, Sosyal Medya vb.
+StudyPlanner, öğrencilerin derslerini ve akademik görevlerini düzenli bir şekilde yönetmelerini sağlayan web tabanlı bir uygulamadır. Kullanıcılar sisteme kayıt olup giriş yaptıktan sonra ders ekleyebilir, her derse ait görevler oluşturabilir, bu görevleri güncelleyebilir ve tamamlanma durumlarını takip edebilirler. Uygulama, kullanıcıların ders bazlı ilerlemelerini görmelerine yardımcı olarak daha planlı ve verimli bir çalışma süreci sunmayı hedeflemektedir. Modern ve kullanıcı dostu arayüzü sayesinde öğrenciler günlük akademik sorumluluklarını kolayca organize edebilir.
 
-Referans Uygulama:
+---
 
-Örnek Referans Uygulama
+### Proje Kategorisi:
 
-Proje Linkleri
-REST API Adresi: api.yazmuh.com
-Web Frontend Adresi: frontend.yazmuh.com
+Eğitim / Görev Yönetim Sistemi
 
+---
+
+### Referans Uygulama:
+
+:contentReference[oaicite:0]{index=0}
+
+---
+
+## Proje Linkleri
+
+- **REST API Adresi:** https://studyplanner-2udh.onrender.com  
+- **Web Frontend Adresi:** https://study-planner-nine-fawn.vercel.app  
 ## My Work Structure
 
 - `backend/` - Node.js + Express API with MongoDB Atlas
