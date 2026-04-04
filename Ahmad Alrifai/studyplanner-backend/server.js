@@ -37,6 +37,9 @@ app.use(cors({
 
 app.options('*', cors());
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Request logging (development only)
 if (process.env.NODE_ENV === 'development') {
     app.use((req, res, next) => {
