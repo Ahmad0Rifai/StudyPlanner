@@ -6,9 +6,7 @@
 const isLocalhost = window.location.hostname === 'localhost' ||
     window.location.hostname === '127.0.0.1';
 
-const API_URL = isLocalhost
-    ? 'http://localhost:5000/api'
-    : 'https://studyplanner-api.onrender.com/api';  // YOUR RENDER URL HERE
+const API_URL = 'https://studyplanner-2udh.onrender.com/api';  // YOUR RENDER URL HERE
 
 console.log('API URL:', API_URL);
 
