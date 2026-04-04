@@ -16,13 +16,10 @@ const PORT = process.env.PORT || 5000;
 // CORS - Allow frontend to connect
 // CORS - Allow deployed frontend
 const allowedOrigins = [
-    'http://localhost:5500',           // Local development
+    'http://localhost:5500',
     'http://127.0.0.1:5500',
-    'http://localhost:3000',
-    null,                               // File:// protocol
-    // Add your deployed frontend URL here later
-    // 'https://your-app.vercel.app',
-    // 'https://your-app.netlify.app'
+    process.env.FRONTEND_URL,  // This will now be set!
+    'https://study-planner-nine-fawn.vercel.app'  // Or hardcode it
 ];
 
 app.use(cors({
