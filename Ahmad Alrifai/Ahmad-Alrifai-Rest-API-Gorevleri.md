@@ -1,5 +1,11 @@
 # StudyPlanner REST API Metotları
 
+**API Test Videosi:** [Link buraya eklenecek](https://example.com)
+
+**Base URL:** `https://studyplanner-2udh.onrender.com/api`
+
+**Authentication:** Bearer Token (JWT)
+
 ---
 
 ## 1. Kullanıcı Kaydı
