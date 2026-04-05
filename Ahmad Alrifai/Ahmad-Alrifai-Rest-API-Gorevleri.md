@@ -1,6 +1,6 @@
 # StudyPlanner REST API Gorevleri
 
-**API Test Videosi:** [Link buraya eklenecek]((https://youtu.be/AzcgPVoZip4))
+**API Test Videosi:** [Link buraya eklenecek](https://youtu.be/AzcgPVoZip4)
 
 **Base URL:** `https://studyplanner-2udh.onrender.com/api`
 
