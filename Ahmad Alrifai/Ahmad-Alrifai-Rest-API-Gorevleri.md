@@ -1,4 +1,4 @@
-# StudyPlanner REST API Metotları
+# StudyPlanner REST API Gorevleri
 
 **API Test Videosi:** [Link buraya eklenecek](https://example.com)
 
