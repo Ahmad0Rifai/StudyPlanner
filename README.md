@@ -34,7 +34,7 @@ Eğitim Teknolojileri (EdTech)
 ## Proje Ekibi
 
 **Grup Adı:**
-Ahmad Alrifai
+SoloDev
 
 **Ekip Üyeleri:**
 - Ahmad Alrifai
@@ -119,18 +119,3 @@ Tüm API endpoint'leri `/api` prefix'i ile başlar:
 | GET | `/api/statistics` | Genel istatistikler |
 | GET | `/api/statistics/quick` | Hızlı özet |
 | GET | `/api/tasks/filter` | Görev filtreleme |
-
----
-
-## Kurulum ve Çalıştırma
-
-### Gereksinimler
-- Node.js (v14+)
-- MongoDB Atlas hesabı
-
-### Backend Kurulumu
-```bash
-cd "Ahmad Alrifai/backend"
-npm install
-# .env dosyasını oluşturun
-npm start
