@@ -12,7 +12,7 @@ info:
     email: example@email.com
 
 servers:
-  - url: https://api.studyplanner.com
+  - url: https://studyplanner-2udh.onrender.com/api
     description: Üretim sunucusu (Production)
   - url: https://staging.studyplanner.com
     description: Test sunucusu (Staging)
