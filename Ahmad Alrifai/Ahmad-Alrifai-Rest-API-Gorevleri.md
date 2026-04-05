@@ -7,9 +7,9 @@
 - **Request Body:**
 ```json
 {
-  "name": "Ahmet Yılmaz",
-  "email": "ahmet@example.com",
-  "password": "Guvenli123!"
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123"
 }
 ```
 - **Response:** `201 Created` - Kullanıcı başarıyla oluşturuldu
@@ -21,8 +21,8 @@
 - **Request Body:**
 ```json
 {
-  "email": "ahmet@example.com",
-  "password": "Guvenli123!"
+  "email": "john@example.com",
+  "password": "password123"
 }
 ```
 - **Response:** `200 OK` - Kullanıcı başarıyla giriş yaptı ve token döndürüldü
@@ -42,8 +42,9 @@
 - **Request Body:**
 ```json
 {
-  "title": "Veri Yapıları",
-  "description": "Veri yapıları ve algoritmalar dersi"
+  "name": "Mathematics",
+  "description": "Math 101",
+  "color": "#e44332"
 }
 ```
 - **Response:** `201 Created` - Ders başarıyla oluşturuldu
@@ -65,8 +66,9 @@
 - **Request Body:**
 ```json
 {
-  "title": "Veri Yapıları ve Algoritmalar",
-  "description": "Güncellenmiş ders açıklaması"
+  "name": "Advanced Math",
+  "description": "Updated desc",
+  "color": "#54a0ff"
 }
 ```
 - **Response:** `200 OK` - Ders başarıyla güncellendi
@@ -90,9 +92,9 @@
 - **Request Body:**
 ```json
 {
-  "title": "Ödev 1",
-  "deadline": "2026-04-10",
-  "description": "Linked list ödevi"
+  "title": "Study Chapter 1",
+  "courseId": "65f8a2b3c4d5e6f7g8h9i0j1",
+  "deadline": "2024-04-10T10:00"
 }
 ```
 - **Response:** `201 Created` - Görev başarıyla oluşturuldu
@@ -116,9 +118,10 @@
 - **Request Body:**
 ```json
 {
-  "title": "Ödev 1 Güncellendi",
-  "deadline": "2026-04-12",
-  "description": "Güncellenmiş ödev açıklaması"
+  "title": "Updated title",
+  "courseId": "65f8a2b3c4d5e6f7g8h9i0j1",
+  "deadline": "2024-04-15T10:00",
+  "completed": false
 }
 ```
 - **Response:** `200 OK` - Görev başarıyla güncellendi
