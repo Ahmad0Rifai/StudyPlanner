@@ -1,5 +1,5 @@
 # StudyPlanner Web Frontend Görevleri
-**Front-end Test Videosu:** [Link buraya eklenecek](https://example.com)
+**Front-end Test Videosu:** [Link buraya eklenecek](https://youtu.be/jIyX5-M5Eno)
 
 ## 1. Üye Olma (Kayıt) Sayfası
 - **API Endpoint:** `POST /api/auth/register`
