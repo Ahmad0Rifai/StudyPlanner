@@ -1,0 +1,420 @@
+openapi: 3.0.0
+info:
+  title: StudyPlanner API
+  description: Study planning application API with course and task management
+  version: 1.0.0
+  contact:
+    name: Ahmad Alrifai
+servers:
+  - url: https://studyplanner-2udh.onrender.com/api
+    description: Production server
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+      example:
+        id: "65f8a2b3c4d5e6f7g8h9i0j1"
+        name: "John Doe"
+        email: "john@example.com"
+
+    Course:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        color:
+          type: string
+      example:
+        _id: "65f8a2b3c4d5e6f7g8h9i0j2"
+        name: "Mathematics"
+        description: "Math 101"
+        color: "#e44332"
+
+    Task:
+      type: object
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        courseId:
+          type: string
+        deadline:
+          type: string
+          format: date-time
+        completed:
+          type: boolean
+      example:
+        _id: "65f8a2b3c4d5e6f7g8h9i0j5"
+        title: "Study Chapter 1"
+        courseId: "65f8a2b3c4d5e6f7g8h9i0j2"
+        deadline: "2024-04-10T10:00:00.000Z"
+        completed: false
+
+paths:
+  /auth/register:
+    post:
+      summary: Register new user
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                name: "John Doe"
+                email: "john@example.com"
+                password: "password123"
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+
+  /auth/login:
+    post:
+      summary: User login
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: "john@example.com"
+                password: "password123"
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+
+  /auth/logout:
+    post:
+      summary: User logout
+      tags:
+        - Authentication
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Logout successful
+
+  /courses:
+    get:
+      summary: View all courses
+      tags:
+        - Courses
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: List of courses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  courses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Course'
+
+    post:
+      summary: Create new course
+      tags:
+        - Courses
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                color:
+                  type: string
+              example:
+                name: "Mathematics"
+                description: "Math 101"
+                color: "#e44332"
+      responses:
+        '201':
+          description: Course created
+
+  /courses/{id}:
+    put:
+      summary: Update course
+      tags:
+        - Courses
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                color:
+                  type: string
+              example:
+                name: "Advanced Math"
+                description: "Updated description"
+                color: "#54a0ff"
+      responses:
+        '200':
+          description: Course updated
+
+    delete:
+      summary: Delete course
+      tags:
+        - Courses
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Course deleted
+
+  /tasks:
+    get:
+      summary: View tasks
+      tags:
+        - Tasks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: courseId
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  tasks:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Task'
+
+    post:
+      summary: Create new task
+      tags:
+        - Tasks
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                courseId:
+                  type: string
+                deadline:
+                  type: string
+              example:
+                title: "Study Chapter 1"
+                courseId: "65f8a2b3c4d5e6f7g8h9i0j1"
+                deadline: "2024-04-10T10:00"
+      responses:
+        '201':
+          description: Task created
+
+  /tasks/{id}:
+    put:
+      summary: Update task
+      tags:
+        - Tasks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                courseId:
+                  type: string
+                deadline:
+                  type: string
+                completed:
+                  type: boolean
+              example:
+                title: "Updated title"
+                courseId: "65f8a2b3c4d5e6f7g8h9i0j1"
+                deadline: "2024-04-15T10:00"
+                completed: false
+      responses:
+        '200':
+          description: Task updated
+
+    delete:
+      summary: Delete task
+      tags:
+        - Tasks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Task deleted
+
+  /tasks/{id}/complete:
+    put:
+      summary: Mark task as completed
+      tags:
+        - Tasks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Task marked as completed
+
+  /tasks/filter:
+    get:
+      summary: Filter tasks
+      tags:
+        - Tasks
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [completed, pending, all]
+        - name: courseId
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Filtered tasks
+
+  /statistics:
+    get:
+      summary: View progress statistics
+      tags:
+        - Statistics
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Statistics data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  overall:
+                    type: object
+                  courses:
+                    type: array
